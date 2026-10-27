@@ -53,7 +53,15 @@ class filme(Obra):
 
     def detalhes(self):
         return f" {self.duracao_minutos} minutos"     
-        
+class serie(Obra):
+    tipo = "série"
+
+    def __init__(self, titulo, ano, genero, temporadas):
+        super().__init__(titulo, ano, genero)
+        self.temporadas = temporadas
+
+    def detalhes(self):
+        return f"{self.temporadas} temporadas"       
         
     
 def main():
@@ -72,6 +80,10 @@ def main():
     filme1.adicionar_avaliacao(Avaliacao("Alice", 9, "Muito bom!"))
     filme1.adicionar_avaliacao(Avaliacao("Bob", 8, "Gostei, mas confuso."))
     print(filme1)   
+
+    serie1 = serie("Breaking Bad", 2008, "Crime", 5)
+    serie1.adicionar_avaliacao(Avaliacao("Charlie", 10, "Melhor série de todos os tempos!"))
+    print(serie1)
           
 if __name__ == "__main__":
     main()
